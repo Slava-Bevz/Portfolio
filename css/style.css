@@ -125,20 +125,20 @@ h6 {
   }
 }
 @media (min-width: 20em) and (max-width: 73.125em) {
-  @supports (height: clamp( 4rem , 3.1529411765rem  +  4.2352941176vw , 6.25rem )) {
+  @supports (height: clamp( 4.0625rem , 3.2389705882rem  +  4.1176470588vw , 6.25rem )) {
     .logo img {
-      height: clamp( 4rem , 3.1529411765rem  +  4.2352941176vw , 6.25rem );
+      height: clamp( 4.0625rem , 3.2389705882rem  +  4.1176470588vw , 6.25rem );
     }
   }
-  @supports not (height: clamp( 4rem , 3.1529411765rem  +  4.2352941176vw , 6.25rem )) {
+  @supports not (height: clamp( 4.0625rem , 3.2389705882rem  +  4.1176470588vw , 6.25rem )) {
     .logo img {
-      height: calc(4rem + 2.25 * (100vw - 20rem) / 53.125);
+      height: calc(4.0625rem + 2.1875 * (100vw - 20rem) / 53.125);
     }
   }
 }
 @media (max-width: 20em) {
   .logo img {
-    height: 4rem;
+    height: 4.0625rem;
   }
 }
 
@@ -213,20 +213,20 @@ h6 {
   }
 }
 @media (min-width: 20em) and (max-width: 73.125em) {
-  @supports (padding-top: clamp( 0.3125rem , -0.0404411765rem  +  1.7647058824vw , 1.25rem )) {
+  @supports (padding-top: clamp( 0.9375rem , 0.8198529412rem  +  0.5882352941vw , 1.25rem )) {
     .header__main {
-      padding-top: clamp( 0.3125rem , -0.0404411765rem  +  1.7647058824vw , 1.25rem );
+      padding-top: clamp( 0.9375rem , 0.8198529412rem  +  0.5882352941vw , 1.25rem );
     }
   }
-  @supports not (padding-top: clamp( 0.3125rem , -0.0404411765rem  +  1.7647058824vw , 1.25rem )) {
+  @supports not (padding-top: clamp( 0.9375rem , 0.8198529412rem  +  0.5882352941vw , 1.25rem )) {
     .header__main {
-      padding-top: calc(0.3125rem + 0.9375 * (100vw - 20rem) / 53.125);
+      padding-top: calc(0.9375rem + 0.3125 * (100vw - 20rem) / 53.125);
     }
   }
 }
 @media (max-width: 20em) {
   .header__main {
-    padding-top: 0.3125rem;
+    padding-top: 0.9375rem;
   }
 }
 @media (min-width: 73.125em) {
@@ -235,20 +235,20 @@ h6 {
   }
 }
 @media (min-width: 20em) and (max-width: 73.125em) {
-  @supports (padding-bottom: clamp( 0.3125rem , -0.0404411765rem  +  1.7647058824vw , 1.25rem )) {
+  @supports (padding-bottom: clamp( 0.9375rem , 0.8198529412rem  +  0.5882352941vw , 1.25rem )) {
     .header__main {
-      padding-bottom: clamp( 0.3125rem , -0.0404411765rem  +  1.7647058824vw , 1.25rem );
+      padding-bottom: clamp( 0.9375rem , 0.8198529412rem  +  0.5882352941vw , 1.25rem );
     }
   }
-  @supports not (padding-bottom: clamp( 0.3125rem , -0.0404411765rem  +  1.7647058824vw , 1.25rem )) {
+  @supports not (padding-bottom: clamp( 0.9375rem , 0.8198529412rem  +  0.5882352941vw , 1.25rem )) {
     .header__main {
-      padding-bottom: calc(0.3125rem + 0.9375 * (100vw - 20rem) / 53.125);
+      padding-bottom: calc(0.9375rem + 0.3125 * (100vw - 20rem) / 53.125);
     }
   }
 }
 @media (max-width: 20em) {
   .header__main {
-    padding-bottom: 0.3125rem;
+    padding-bottom: 0.9375rem;
   }
 }
 .menu__list {
@@ -256,7 +256,7 @@ h6 {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  row-gap: 0.3125rem;
+  row-gap: 0.625rem;
 }
 @media (min-width: 73.125em) {
   .menu__list {
@@ -757,6 +757,8 @@ h6 {
 
 .video-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   border-radius: 0.625rem;
   background: rgba(92, 98, 236, 0.15);
   box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.25);
@@ -764,27 +766,48 @@ h6 {
   cursor: pointer;
   transition: transform 0.3s ease;
 }
+.video-card__video {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 75%;
+  border-radius: 0.625rem;
+}
+.video-card__video video,
+.video-card__video iframe,
+.video-card__video object,
+.video-card__video embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .video-card__overlay {
+  display: flex;
   color: #171718;
   font-family: DM Sans;
+  height: 100%;
   font-weight: 700;
   line-height: 130%; /* 31.2px */
   letter-spacing: -0.03125rem;
+  align-items: center;
 }
 @media (min-width: 73.125em) {
   .video-card__overlay {
-    padding-top: 0.9375rem;
+    padding-top: 1.25rem;
   }
 }
 @media (min-width: 20em) and (max-width: 73.125em) {
-  @supports (padding-top: clamp( 0.625rem , 0.5073529412rem  +  0.5882352941vw , 0.9375rem )) {
+  @supports (padding-top: clamp( 0.625rem , 0.3897058824rem  +  1.1764705882vw , 1.25rem )) {
     .video-card__overlay {
-      padding-top: clamp( 0.625rem , 0.5073529412rem  +  0.5882352941vw , 0.9375rem );
+      padding-top: clamp( 0.625rem , 0.3897058824rem  +  1.1764705882vw , 1.25rem );
     }
   }
-  @supports not (padding-top: clamp( 0.625rem , 0.5073529412rem  +  0.5882352941vw , 0.9375rem )) {
+  @supports not (padding-top: clamp( 0.625rem , 0.3897058824rem  +  1.1764705882vw , 1.25rem )) {
     .video-card__overlay {
-      padding-top: calc(0.625rem + 0.3125 * (100vw - 20rem) / 53.125);
+      padding-top: calc(0.625rem + 0.625 * (100vw - 20rem) / 53.125);
     }
   }
 }
@@ -795,24 +818,24 @@ h6 {
 }
 @media (min-width: 73.125em) {
   .video-card__overlay {
-    padding-bottom: 1.5625rem;
+    padding-bottom: 1.25rem;
   }
 }
 @media (min-width: 20em) and (max-width: 73.125em) {
-  @supports (padding-bottom: clamp( 0.9375rem , 0.7022058824rem  +  1.1764705882vw , 1.5625rem )) {
+  @supports (padding-bottom: clamp( 0.625rem , 0.3897058824rem  +  1.1764705882vw , 1.25rem )) {
     .video-card__overlay {
-      padding-bottom: clamp( 0.9375rem , 0.7022058824rem  +  1.1764705882vw , 1.5625rem );
+      padding-bottom: clamp( 0.625rem , 0.3897058824rem  +  1.1764705882vw , 1.25rem );
     }
   }
-  @supports not (padding-bottom: clamp( 0.9375rem , 0.7022058824rem  +  1.1764705882vw , 1.5625rem )) {
+  @supports not (padding-bottom: clamp( 0.625rem , 0.3897058824rem  +  1.1764705882vw , 1.25rem )) {
     .video-card__overlay {
-      padding-bottom: calc(0.9375rem + 0.625 * (100vw - 20rem) / 53.125);
+      padding-bottom: calc(0.625rem + 0.625 * (100vw - 20rem) / 53.125);
     }
   }
 }
 @media (max-width: 20em) {
   .video-card__overlay {
-    padding-bottom: 0.9375rem;
+    padding-bottom: 0.625rem;
   }
 }
 @media (min-width: 73.125em) {
@@ -821,20 +844,20 @@ h6 {
   }
 }
 @media (min-width: 20em) and (max-width: 73.125em) {
-  @supports (padding-left: clamp( 0.625rem , 0.3897058824rem  +  1.1764705882vw , 1.25rem )) {
+  @supports (padding-left: clamp( 0.9375rem , 0.8198529412rem  +  0.5882352941vw , 1.25rem )) {
     .video-card__overlay {
-      padding-left: clamp( 0.625rem , 0.3897058824rem  +  1.1764705882vw , 1.25rem );
+      padding-left: clamp( 0.9375rem , 0.8198529412rem  +  0.5882352941vw , 1.25rem );
     }
   }
-  @supports not (padding-left: clamp( 0.625rem , 0.3897058824rem  +  1.1764705882vw , 1.25rem )) {
+  @supports not (padding-left: clamp( 0.9375rem , 0.8198529412rem  +  0.5882352941vw , 1.25rem )) {
     .video-card__overlay {
-      padding-left: calc(0.625rem + 0.625 * (100vw - 20rem) / 53.125);
+      padding-left: calc(0.9375rem + 0.3125 * (100vw - 20rem) / 53.125);
     }
   }
 }
 @media (max-width: 20em) {
   .video-card__overlay {
-    padding-left: 0.625rem;
+    padding-left: 0.9375rem;
   }
 }
 @media (min-width: 73.125em) {
@@ -843,20 +866,20 @@ h6 {
   }
 }
 @media (min-width: 20em) and (max-width: 73.125em) {
-  @supports (padding-right: clamp( 0.625rem , 0.3897058824rem  +  1.1764705882vw , 1.25rem )) {
+  @supports (padding-right: clamp( 0.9375rem , 0.8198529412rem  +  0.5882352941vw , 1.25rem )) {
     .video-card__overlay {
-      padding-right: clamp( 0.625rem , 0.3897058824rem  +  1.1764705882vw , 1.25rem );
+      padding-right: clamp( 0.9375rem , 0.8198529412rem  +  0.5882352941vw , 1.25rem );
     }
   }
-  @supports not (padding-right: clamp( 0.625rem , 0.3897058824rem  +  1.1764705882vw , 1.25rem )) {
+  @supports not (padding-right: clamp( 0.9375rem , 0.8198529412rem  +  0.5882352941vw , 1.25rem )) {
     .video-card__overlay {
-      padding-right: calc(0.625rem + 0.625 * (100vw - 20rem) / 53.125);
+      padding-right: calc(0.9375rem + 0.3125 * (100vw - 20rem) / 53.125);
     }
   }
 }
 @media (max-width: 20em) {
   .video-card__overlay {
-    padding-right: 0.625rem;
+    padding-right: 0.9375rem;
   }
 }
 @media (min-width: 73.125em) {
@@ -880,10 +903,6 @@ h6 {
   .video-card__overlay {
     font-size: 1.25rem;
   }
-}
-.video-card__video {
-  width: 100%;
-  border-radius: 0.625rem;
 }
 @media (any-hover: hover) {
   .video-card:hover {
