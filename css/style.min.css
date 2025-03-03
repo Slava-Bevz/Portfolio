@@ -786,6 +786,8 @@ h6 {
 }
 .video-card__overlay {
   display: flex;
+  justify-content: center;
+  text-align: center;
   color: #171718;
   font-family: DM Sans;
   height: 100%;
